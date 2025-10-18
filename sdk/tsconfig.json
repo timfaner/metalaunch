@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "types": [
+      "mocha",
+      "chai"
+    ],
+    "paths": {
+      "@metadaoproject/futarchy/v0.3": ["./dist/v0.3/types/index.d.ts"],
+      "@metadaoproject/futarchy/v0.4": ["./dist/v0.4/types/index.d.ts"],
+      "@metadaoproject/futarchy/v0.5": ["./dist/v0.5/types/index.d.ts"],
+      "@metadaoproject/futarchy/v0.6": ["./dist/v0.6/types/index.d.ts"]
+    },
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "lib": [
+      "esnext"
+    ],
+    "module": "NodeNext",
+    "target": "esnext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "nodenext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "declaration": true
+  },
+  "include": [
+    "src/*",
+    "src/v0.3/*",
+    "src/v0.4/*",
+    "src/v0.5/*",
+    "src/v0.6/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "target",
+    "tests",
+    "migrations"
+  ]
+}
