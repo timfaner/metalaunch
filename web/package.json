@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "cd ../sdk && yarn install && yarn build",
+    "prebuild": "cd ../sdk && yarn build",
+    "predev": "cd ../sdk && yarn build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

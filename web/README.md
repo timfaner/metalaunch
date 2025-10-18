@@ -1,79 +1,88 @@
-# MetaLaunch Web 应用
+# MetaLaunch Web Application
 
-基于 Next.js 的 MetaDAO Launch 投资平台网页应用。
+A Next.js-based web application for funding token launches on the MetaDAO platform.
 
-## 功能特性
+## Features
 
-- 🔗 支持 Phantom、Solflare、Backpack 等 Solana 钱包
-- 💰 实时查看 Launch 信息和筹款进度
-- 📊 显示个人投资记录
-- ⚡ 快速确认交易
-- 🎨 现代化 UI 设计
+- 🔗 Support for Phantom, Solflare, and other Solana wallets
+- 💰 Real-time Launch information and funding progress
+- 📊 Display personal investment records
+- ⚡ Fast transaction confirmation
+- 🎨 Modern UI design
+- 💝 Donation banner with project support
 
-## 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
+
+**One command to install everything (including SDK):**
 
 ```bash
 npm install --legacy-peer-deps
 ```
 
-### 2. 配置环境变量
+> 🎉 **New!** The SDK will be automatically built during installation. No need to manually build it first!
 
-复制并修改环境变量文件：
+### 2. Configure Environment Variables
+
+Copy and modify the environment variables file if needed:
 
 ```bash
-cp .env.local .env.local.example  # 如需修改默认配置
+cp .env.local .env.local.example  # Optional: modify default configuration
 ```
 
-环境变量说明：
-- `NEXT_PUBLIC_SOLANA_RPC_URL`: Solana RPC 端点（默认：mainnet-beta）
-- `NEXT_PUBLIC_DEFAULT_LAUNCH_ADDRESS`: 默认 Launch 地址
+Environment variables:
+- `NEXT_PUBLIC_SOLANA_RPC_URL`: Solana RPC endpoint (default: mainnet-beta)
+- `NEXT_PUBLIC_DEFAULT_LAUNCH_ADDRESS`: Default Launch address
 
-### 3. 运行开发服务器
+### 3. Run Development Server
 
 ```bash
 npm run dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看应用。
+Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-### 4. 构建生产版本
+> The SDK will be automatically built before starting the dev server.
+
+### 4. Build for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-## 使用说明
+> The SDK will be automatically built before the production build.
 
-### 连接钱包
+## Usage Guide
 
-1. 点击页面右上角的"选择钱包"按钮
-2. 选择你使用的钱包（Phantom、Solflare 等）
-3. 在钱包中确认连接
+### Connect Wallet
 
-### 投资 Launch
+1. Click the "Select Wallet" button in the top right corner
+2. Choose your wallet (Phantom, Solflare, etc.)
+3. Confirm the connection in your wallet
 
-1. 输入或使用默认的 Launch 地址，点击"查询"
-2. 查看 Launch 信息，包括筹款进度和状态
-3. 在投资表单中输入金额（USDC）
-4. 点击"确认投资"并在钱包中确认交易
-5. 等待交易确认，查看交易结果
+### Fund a Launch
 
-### 查看投资记录
+1. Enter or use the default Launch address, click "Query"
+2. View Launch information, including funding progress and status
+3. Enter the amount (USDC) in the investment form
+4. Click "Confirm Investment" and approve the transaction in your wallet
+5. Wait for transaction confirmation and view the result
 
-连接钱包后，如果你已经投资过该 Launch，会在 Launch 信息卡片中显示你的投资金额。
+### View Investment Records
 
-## 技术栈
+After connecting your wallet, if you've already invested in the Launch, your investment amount will be displayed in the Launch information card.
 
-- **框架**: Next.js 14 (App Router)
-- **样式**: Tailwind CSS
-- **钱包集成**: Solana Wallet Adapter
-- **区块链**: Solana (@solana/web3.js, @coral-xyz/anchor)
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Wallet Integration**: Solana Wallet Adapter
+- **Blockchain**: Solana (@solana/web3.js, @coral-xyz/anchor)
 - **SDK**: @metadaoproject/futarchy v0.6
 
-## 项目结构
+## Project Structure
 
 ```
 web/
@@ -88,11 +97,35 @@ web/
 ├── hooks/
 │   └── useFundLaunch.ts    # 投资逻辑 Hook
 └── lib/
-    ├── wallet-context-provider.tsx # 钱包上下文
-    └── launchpad.ts        # LaunchpadClient 工具函数
+    ├── wallet-context-provider.tsx # Wallet context
+    └── launchpad.ts        # LaunchpadClient utilities
 ```
 
-## 常见问题
+## Simplified Build Process ⚡
+
+### Before:
+```bash
+cd sdk
+yarn install
+yarn build
+cd ../web
+npm install
+npm run build
+```
+
+### Now:
+```bash
+cd web
+npm install  # SDK builds automatically! 🎉
+npm run dev  # Or npm run build
+```
+
+**Automatic SDK building:**
+- `npm install` → runs `postinstall` → builds SDK
+- `npm run dev` → runs `predev` → ensures SDK is built
+- `npm run build` → runs `prebuild` → ensures SDK is built
+
+## Common Issues
 
 ### 钱包连接失败
 
