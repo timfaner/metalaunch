@@ -14,3 +14,6 @@ wallet.json
 key.txt
 *.key
 *-keypair.json
+
+#cursor
+.cursor
