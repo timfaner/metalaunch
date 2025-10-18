@@ -104,6 +104,19 @@ npx ts-node fundLaunch.ts 100
 npx ts-node fundLaunch.ts <金额>
 ```
 
+### 认领代币
+
+当 Launch 完成后，使用以下命令认领你投资获得的代币：
+
+```bash
+npx ts-node claimLaunch.ts
+```
+
+注意：
+- 只有在 Launch 状态为 `completed` 时才能认领代币
+- 需要先通过 `fundLaunch.ts` 投资过才能认领
+- 认领操作会自动创建你的代币账户（如果尚未创建）
+
 ## 注意事项
 
 - 请确保钱包中有足够的 SOL 用于交易手续费
